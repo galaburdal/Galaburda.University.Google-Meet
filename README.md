@@ -1,5 +1,6 @@
 # Galaburda.University.Google-Meet
 ## About
+Google Meet is a web application for video conferencing. It is designed for making video calls and video conferences with the ability to add participants, exchange messages, share the screen and other useful functions. Google Meet lets you communicate and collaborate with colleagues, clients, and other participants from different locations, making it a useful tool for remote work, learning, and communication.
 ## Author
 Galaburda Liza
 - Email: lizas.123g@gmail.com
@@ -8,7 +9,7 @@ Galaburda Liza
 ## Documentation
 ## Project Task Decomposition
 Week 1:
-- Implement feature: User Registration - &#10004;
+- Implement feature: User Registration  &#10004;
 - Set up Azure environment for deployment
 - Configure OAuth 2.0 authorization with Google account
 - Create welcome email functionality upon successful registration
