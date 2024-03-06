@@ -1,11 +1,14 @@
 # Galaburda.University.Google-Meet
 ## About
 ## Author
-# Getting Started
-# Documentation
-# Project Task Decomposition
+Galaburda Liza
+- Email: lizas.123g@gmail.com
+- Telegram: https://t.me/lizas22
+## Getting Started
+## Documentation
+## Project Task Decomposition
 Week 1:
-- Implement feature: User Registration
+- Implement feature: User Registration - &#10004;
 - Set up Azure environment for deployment
 - Configure OAuth 2.0 authorization with Google account
 - Create welcome email functionality upon successful registration
