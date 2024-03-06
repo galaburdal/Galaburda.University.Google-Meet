@@ -1,6 +1,6 @@
 # Galaburda.University.Google-Meet
-# About
-# Author
+## About
+## Author
 # Getting Started
 # Documentation
 # Project Task Decomposition
