@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Management</title>
+</head>
+<body>
+    <div id="participants"></div>
+    <input type="text" id="participant" placeholder="Enter participant ID...">
+    <button id="join">Join</button>
+    <button id="leave">Leave</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('participants_updated', function(data) {
+            var participants = document.getElementById('participants');
+            participants.innerHTML = '';
+            data.forEach(function(participant) {
+                var p = document.createElement('div');
+                p.textContent = participant;
+                participants.appendChild(p);
+            });
+        });
+
+        document.getElementById('join').addEventListener('click', function() {
+            var participant_id = document.getElementById('participant').value;
+            socket.emit('join', {id: participant_id});
+        });
+
+        document.getElementById('leave').addEventListener('click', function() {
+            var participant_id = document.getElementById('participant').value;
+            socket.emit('leave', {id: participant_id});
+        });
+    </script>
+</body>
+</html>
