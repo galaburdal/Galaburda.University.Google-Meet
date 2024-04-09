@@ -1,33 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Conferencing App</title>
-    <link rel="stylesheet" href="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\css\styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Video Conferencing App</h1>
-    <div id="container">
-        <div id="video-conferencing">
-            <iframe src="video_conferencing.html" width="500" height="500"></iframe>
- x       </div>
-        <div id="screen-sharing">
-            <iframe src="screen_sharing.html" width="300" height="100"></iframe>
-        </div>
-        <div id="chat">
-            <iframe src="chat.html" width="300" height="100"></iframe>
-        </div>
-        <div id="schedule-meeting">
-            <iframe src="schedule_meeting.html" width="300" height="100"></iframe>
-        </div>
-        <div id="participant-management">
-            <iframe src="participant_management.html" width="300" height="100"></iframe>
-        </div>
+    <header>
+        <h1>Welcome to the Video Conferencing App</h1>
+    </header>
+    <div class="container">
+       <button onclick="window.location.href = 'chat.html';">Chat</button>
+        <button onclick="window.location.href = 'registration.html';">Registration</button>
+        <button onclick="window.location.href = 'participant_management.html';">Participant Management</button>
+        <button onclick="window.location.href = 'screen_sharing.html';">Screen Sharing</button>
+        <button onclick="window.location.href = 'schedule_meeting.html';">Schedule Meeting</button>
+        <button onclick="window.location.href = 'video_conferencing.html';">Video Conferencing</button>
     </div>
-    <script src="https://cdn.socket.io/socket.io-4.4.0.min.js"></script>
-    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\video_conferencing.js"></script>
-    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\screen_sharing.js"></script>
-    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\chat.js"></script>
-    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\meeting_scheduling.js"></script>
-    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\participant_management.js"></script>
 </body>
 </html>
