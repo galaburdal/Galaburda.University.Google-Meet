@@ -1,4 +1,3 @@
-// chat.js
 
 const socket = io();
 const chatMessages = document.getElementById('chatMessages');

@@ -1,4 +1,3 @@
-// screen_sharing.js
 
 const socket = io();
 const localVideo = document.getElementById('localVideo');

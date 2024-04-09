@@ -1,4 +1,3 @@
-// meeting_scheduling.js
 
 const socket = io();
 const meetingForm = document.getElementById('meetingForm');

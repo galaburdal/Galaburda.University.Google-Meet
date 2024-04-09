@@ -1,38 +1,41 @@
-// participant_management.js
+
+var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+socket.on('participants_updated', function(data) {
+    var participants = document.getElementById('participants');
+    participants.innerHTML = '';
+    data.forEach(function(participant) {
+        var p = document.createElement('div');
+        p.textContent = participant;
+        participants.appendChild(p);
+    });
+});
+
+document.getElementById('join').addEventListener('click', function() {
+    var participant_id = document.getElementById('participant').value;
+    socket.emit('join', {id: participant_id});
+});
+
+document.getElementById('leave').addEventListener('click', function() {
+    var participant_id = document.getElementById('participant').value;
+    socket.emit('leave', {id: participant_id});
+});
+
 
 const socket = io();
-const participantsList = document.getElementById('participantsList');
-const muteButtons = document.getElementsByClassName('muteButton');
-const kickButtons = document.getElementsByClassName('kickButton');
+const localVideo = document.getElementById('localVideo');
+const remoteVideos = document.getElementById('remoteVideos');
+let localStream;
+let peerConnections = {};
 
-function muteParticipant(participantId) {
-    socket.emit('mute-participant', participantId);
-}
-
-function kickParticipant(participantId) {
-    socket.emit('kick-participant', participantId);
-}
-
-socket.on('update-participants', (participants) => {
-    participantsList.innerHTML = '';
-    participants.forEach((participant) => {
-        const participantElement = document.createElement('div');
-        participantElement.classList.add('participant');
-        participantElement.innerHTML = `<strong>${participant.username}</strong> - ${participant.status}`;
-        participantsList.appendChild(participantElement);
+navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    .then((stream) => {
+        localStream = stream;
+        localVideo.srcObject = stream;
+        socket.emit('join', { streamId: socket.id });
+    })
+    .catch((error) => {
+        console.error('Error getting user media:', error);
     });
-});
 
-Array.from(muteButtons).forEach((button) => {
-    button.addEventListener('click', () => {
-        const participantId = button.dataset.participantId;
-        muteParticipant(participantId);
-    });
-});
 
-Array.from(kickButtons).forEach((button) => {
-    button.addEventListener('click', () => {
-        const participantId = button.dataset.participantId;
-        kickParticipant(participantId);
-    });
-});
