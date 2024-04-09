@@ -2,32 +2,32 @@
 <html>
 <head>
     <title>Video Conferencing App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\css\styles.css">
 </head>
 <body>
     <h1>Welcome to the Video Conferencing App</h1>
     <div id="container">
         <div id="video-conferencing">
-            {% include 'video_conferencing.html' %}
-        </div>
+            <iframe src="video_conferencing.html" width="500" height="500"></iframe>
+ x       </div>
         <div id="screen-sharing">
-            {% include 'screen_sharing.html' %}
+            <iframe src="screen_sharing.html" width="300" height="100"></iframe>
         </div>
         <div id="chat">
-            {% include 'chat.html' %}
+            <iframe src="chat.html" width="300" height="100"></iframe>
         </div>
         <div id="schedule-meeting">
-            {% include 'schedule_meeting.html' %}
+            <iframe src="schedule_meeting.html" width="300" height="100"></iframe>
         </div>
         <div id="participant-management">
-            {% include 'participant_management.html' %}
+            <iframe src="participant_management.html" width="300" height="100"></iframe>
         </div>
     </div>
     <script src="https://cdn.socket.io/socket.io-4.4.0.min.js"></script>
-    <script src="{{ url_for('static', filename='video_conferencing.js') }}"></script>
-    <script src="{{ url_for('static', filename='screen_sharing.js') }}"></script>
-    <script src="{{ url_for('static', filename='chat.js') }}"></script>
-    <script src="{{ url_for('static', filename='meeting_scheduling.js') }}"></script>
-    <script src="{{ url_for('static', filename='participant_management.js') }}"></script>
+    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\video_conferencing.js"></script>
+    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\screen_sharing.js"></script>
+    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\chat.js"></script>
+    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\meeting_scheduling.js"></script>
+    <script src="C:\Users\ASUS\PycharmProjects\Galaburda.University.Google-Meet\static\js\participant_management.js"></script>
 </body>
 </html>
