@@ -6,7 +6,6 @@ Galaburda Liza
 - Email: lizas.123g@gmail.com
 - Telegram: https://t.me/lizas22
 ## Getting Started
-## Documentation
 ## Project Task Decomposition
 Week 1:
 - Implement feature: User Registration  &#10004;
