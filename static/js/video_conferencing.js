@@ -1,4 +1,4 @@
-// video_conferencing.js
+
 const socket = io();
 
 let localStream;
