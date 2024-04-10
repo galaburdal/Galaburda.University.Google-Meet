@@ -17,36 +17,58 @@
     <div id="optionsModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="hideOptions()">&times;</span>
-            <h2>Приєднатись до відеодзвінка</h2>
-            <p>Введіть код доступу:</p>
-            <input type="text" id="meetingCode" placeholder="Код доступу"><br>
-            <button onclick="joinMeetingByCode()" class="btn">Приєднатись</button>
+            <h2>Створити нову зустріч</h2>
+            <input type="text" id="userName" placeholder="Ваше ім'я"><br>
+            <button onclick="createMeeting()" class="btn">Створити</button>
+        </div>
+    </div>
+
+    <div id="joinModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideOptions()">&times;</span>
+            <h2>Долучитись до відеодзвінка за кодом</h2>
+            <input type="text" id="meetingCode" placeholder="Код зустрічі"><br>
+            <label for="camera">Камера:</label>
+            <select id="camera">
+                <option value="front">Передня</option>
+                <option value="back">Задня</option>
+            </select><br>
+            <label for="microphone">Мікрофон:</label>
+            <select id="microphone">
+                <option value="on">Увімкнено</option>
+                <option value="off">Вимкнено</option>
+            </select><br>
+            <button onclick="joinMeetingByCode()" class="btn">Долучитись</button>
         </div>
     </div>
 
     <script>
-        function showOptions() {
-            document.getElementById("optionsModal").style.display = "block";
+        function showOptions(modalId) {
+            document.getElementById(modalId).style.display = "block";
         }
 
         function hideOptions() {
             document.getElementById("optionsModal").style.display = "none";
+            document.getElementById("joinModal").style.display = "none";
         }
 
         function createMeeting() {
             var userName = document.getElementById("userName").value;
             alert("Створюємо нову зустріч для користувача " + userName);
+            hideOptions(); // Приховуємо модальне вікно після алерта
         }
 
         function joinMeetingByCode() {
-            document.getElementById("optionsModal").style.display = "block";
+            let meetingCode = document.getElementById("meetingCode").value;
+            let camera = document.getElementById("camera").value;
+            let microphone = document.getElementById("microphone").value;
+            alert("Приєднуємося до зустрічі за кодом " + meetingCode + " з камерою " + camera + " та мікрофоном " + microphone);
+            let url = "video_conferencing.html";
+            window.location.href = url;
         }
 
-        document.getElementById('createMeeting').addEventListener('click', function() {
-            alert("Створити нову зустріч");
-        });
-
-        document.getElementById('joinMeetingByCode').addEventListener('click', joinMeetingByCode);
+        document.getElementById('createMeeting').addEventListener('click', function() { showOptions('optionsModal'); });
+        document.getElementById('joinMeetingByCode').addEventListener('click', function() { showOptions('joinModal'); });
     </script>
 </body>
 </html>

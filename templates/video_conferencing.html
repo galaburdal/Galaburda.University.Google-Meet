@@ -4,14 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Conferencing</title>
+    <title>Відеоконференція</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <video id="localVideo" autoplay></video>
-    <div id="remoteVideos"></div>
-    <button id="startCall">Start Call</button>
-    <button id="endCall">End Call</button>
+    <h1>Відеоконференція</h1>
 
-    <script src="/static/js/video_conferencing.js"></script>
+    <div id="videoContainer">
+        <video id="localVideo" autoplay></video>
+    </div>
+
+    <div id="controls">
+        <button class="btn" id="toggleCamera">Увімкнути/вимкнути камеру</button>
+        <button class="btn" id="toggleMicrophone">Увімкнути/вимкнути мікрофон</button>
+        <button class="btn" id="hangup">Вийти</button>
+    </div>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then(function(stream) {
+            var videoElement = document.getElementById('localVideo');
+            videoElement.srcObject = stream;
+        })
+        .catch(function(err) {
+            console.error('Помилка при отриманні доступу до медіапотоку: ', err);
+        });
+
+        var toggleCameraButton = document.getElementById('toggleCamera');
+        var toggleMicrophoneButton = document.getElementById('toggleMicrophone');
+        var hangupButton = document.getElementById('hangup');
+
+        toggleCameraButton.addEventListener('click', function() {
+            var stream = document.getElementById('localVideo').srcObject;
+            var videoTrack = stream.getVideoTracks()[0];
+            videoTrack.enabled = !videoTrack.enabled;
+        });
+
+        toggleMicrophoneButton.addEventListener('click', function() {
+            var stream = document.getElementById('localVideo').srcObject;
+            var audioTrack = stream.getAudioTracks()[0];
+            audioTrack.enabled = !audioTrack.enabled;
+        });
+
+        hangupButton.addEventListener('click', function() {
+
+
+            window.location.href = "index.html";
+        });
+    </script>
 </body>
 </html>

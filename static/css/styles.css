@@ -231,3 +231,61 @@ main {
     background-color: #fff;
     color: #000;
 }
+
+.modal-content {
+    background-color: #333; /* Темний фон */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-content input[type=text],
+.modal-content select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff; /* Колір фону полів вводу */
+}
+
+.modal-content .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.modal-content .btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+ /**/
+ #videoContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#localVideo {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#controls {
+    text-align: center;
+    margin-top: 20px;
+}
