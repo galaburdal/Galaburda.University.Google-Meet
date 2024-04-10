@@ -15,7 +15,7 @@ Week 1:
 - Design and implement basic user interface for registration process &#10004;
 
 Week 2:
-- Implement feature: Video Conferencing &#10004;
+- Implement feature: Video Conferencing &#10004; ?
 - Integrate video streaming functionality using WebRTC technology &#10004;
 - Develop user interface for initiating and joining video conferences &#10004;
 - Test video quality and optimize performance for Chrome PC browsers &#10004;
