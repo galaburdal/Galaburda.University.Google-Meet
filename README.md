@@ -1,4 +1,4 @@
-# Galaburda.University.Google-Meet
+# Galaburda.University.Google-Meet №50
 ## About
 Google Meet is a web application for video conferencing. It is designed for making video calls and video conferences with the ability to add participants, exchange messages, share the screen and other useful functions. Google Meet lets you communicate and collaborate with colleagues, clients, and other participants from different locations, making it a useful tool for remote work, learning, and communication.
 ## Author
@@ -10,7 +10,7 @@ Galaburda Liza
 Week 1:
 - Implement feature: User Registration  &#10004;
 - Set up Azure environment for deployment &#10004;
-- Configure OAuth 2.0 authorization with Google account &#10004;
+- Configure OAuth 2.0 authorization with Google account &#10004; ???
 - Create welcome email functionality upon successful registration &#10004;
 - Design and implement basic user interface for registration process &#10004;
 
@@ -18,36 +18,36 @@ Week 2:
 - Implement feature: Video Conferencing &#10004; ?
 - Integrate video streaming functionality using WebRTC technology &#10004;
 - Develop user interface for initiating and joining video conferences &#10004;
-- Test video quality and optimize performance for Chrome PC browsers &#10004;
+- Test video quality and optimize performance for Chrome PC browsers ?? 
 - Implement basic participant management features (mute/unmute, invite) &#10004;
 
 Week 3:
 - Implement feature: Screen Sharing &#10004;
 - Develop screen sharing functionality with screen capture capabilities &#10004;
 - Integrate screen sharing option within video conferencing interface &#10004;
-- Test screen sharing across various devices and screen resolutions &#10004;
-- Ensure compatibility and performance on Chrome PC browsers &#10004;
+- Test screen sharing across various devices and screen resolutions &#10004; ?
+- Ensure compatibility and performance on Chrome PC browsers 
 
 Week 4:
-- Implement feature: Chat Functionality &#10004;
-- Develop real-time chat feature within the video conferencing interface &#10004;
-- Implement message delivery and display functionality &#10004;
-- Test chat functionality for reliability and performance &#10004;
-- Integrate chat notifications and settings customization options &#10004;
+- Implement feature: Chat Functionality 
+- Develop real-time chat feature within the video conferencing interface 
+- Implement message delivery and display functionality 
+- Test chat functionality for reliability and performance 
+- Integrate chat notifications and settings customization options 
 
 Week 5:
 - Implement feature: Meeting Scheduling &#10004;
-- Develop meeting scheduling functionality with calendar integration &#10004;
-- Implement email notifications for meeting invitations and reminders &#10004;
-- Test scheduling features across different time zones and calendar platforms &#10004;
-- Optimize user interface for intuitive scheduling experience &#10004;
+- Develop meeting scheduling functionality with calendar integration 
+- Implement email notifications for meeting invitations and reminders 
+- Test scheduling features across different time zones and calendar platforms 
+- Optimize user interface for intuitive scheduling experience 
 
 Week 6:
-- Implement feature: Participant Management &#10004;
-- Develop host controls for managing participants during meetings &#10004;
-- Implement mute/unmute functionality, participant list display, and participant roles &#10004;
-- Test participant management features for scalability and reliability &#10004;
-- Enhance user interface for intuitive participant management &#10004;
+- Implement feature: Participant Management 
+- Develop host controls for managing participants during meetings 
+- Implement mute/unmute functionality, participant list display, and participant roles 
+- Test participant management features for scalability and reliability 
+- Enhance user interface for intuitive participant management 
 
 Week 7:
 - Implement feature: Recording and Playback
