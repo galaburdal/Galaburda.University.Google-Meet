@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1 class="mt-5">Головна сторінка</h1>
-        <button id="createMeeting" class="btn">Створити нову зустріч</button>
+        <button id="createMeeting" class="btn" onclick="showCreateMeetingModal()">Створити нову зустріч</button>
         <button id="joinMeetingByCode" class="btn">Долучитись до відеодзвінка за кодом</button>
     </div>
 
@@ -18,7 +18,8 @@
         <div class="modal-content">
             <span class="close" onclick="hideOptions()">&times;</span>
             <h2>Створити нову зустріч</h2>
-            <input type="text" id="userName" placeholder="Ваше ім'я"><br>
+            <input type="text" id="meetingName" placeholder="Назва зустрічі"><br>
+            <input type="datetime-local" id="meetingDateTime"><br>
             <button onclick="createMeeting()" class="btn">Створити</button>
         </div>
     </div>
@@ -52,9 +53,14 @@
             document.getElementById("joinModal").style.display = "none";
         }
 
+        function showCreateMeetingModal() {
+            showOptions('optionsModal');
+        }
+
         function createMeeting() {
-            var userName = document.getElementById("userName").value;
-            alert("Створюємо нову зустріч для користувача " + userName);
+            var meetingName = document.getElementById("meetingName").value;
+            var meetingDateTime = document.getElementById("meetingDateTime").value;
+            alert("Створюємо нову зустріч \"" + meetingName + "\" на " + meetingDateTime);
             hideOptions(); // Приховуємо модальне вікно після алерта
         }
 
@@ -67,7 +73,6 @@
             window.location.href = url;
         }
 
-        document.getElementById('createMeeting').addEventListener('click', function() { showOptions('optionsModal'); });
         document.getElementById('joinMeetingByCode').addEventListener('click', function() { showOptions('joinModal'); });
     </script>
 </body>
