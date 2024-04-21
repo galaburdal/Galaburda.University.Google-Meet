@@ -4,46 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Головна сторінка</title>
+    <title>Video Conference</title>
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">Головна сторінка</h1>
-        <button id="createMeeting" class="btn" onclick="showCreateMeetingModal()">Створити нову зустріч</button>
-        <button id="joinMeetingByCode" class="btn">Долучитись до відеодзвінка за кодом</button>
+        <h1 class="mt-5">Video Conference</h1>
+        <button id="createMeeting" class="btn" onclick="showCreateMeetingModal()">Create New Meeting</button>
+        <button id="joinMeetingByCode" class="btn">Join Meeting by Code</button>
+        <div id="chat" style="height: 200px; overflow-y: scroll;"></div>
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button id="sendMessage">Send</button>
     </div>
 
     <div id="optionsModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="hideOptions()">&times;</span>
-            <h2>Створити нову зустріч</h2>
-            <input type="text" id="meetingName" placeholder="Назва зустрічі"><br>
+            <h2>Create New Meeting</h2>
+            <input type="text" id="meetingName" placeholder="Meeting Name"><br>
             <input type="datetime-local" id="meetingDateTime"><br>
-            <button onclick="createMeeting()" class="btn">Створити</button>
+            <button onclick="createMeeting()" class="btn">Create</button>
         </div>
     </div>
 
     <div id="joinModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="hideOptions()">&times;</span>
-            <h2>Долучитись до відеодзвінка за кодом</h2>
-            <input type="text" id="meetingCode" placeholder="Код зустрічі"><br>
-            <label for="camera">Камера:</label>
+            <h2>Join Meeting by Code</h2>
+            <input type="text" id="meetingCode" placeholder="Meeting Code"><br>
+            <label for="camera">Camera:</label>
             <select id="camera">
-                <option value="front">Передня</option>
-                <option value="back">Задня</option>
+                <option value="front">Front</option>
+                <option value="back">Back</option>
             </select><br>
-            <label for="microphone">Мікрофон:</label>
+            <label for="microphone">Microphone:</label>
             <select id="microphone">
-                <option value="on">Увімкнено</option>
-                <option value="off">Вимкнено</option>
+                <option value="on">On</option>
+                <option value="off">Off</option>
             </select><br>
-            <button onclick="joinMeetingByCode()" class="btn">Долучитись</button>
+            <button onclick="joinMeetingByCode()" class="btn">Join</button>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        const socket = io();
+
+        socket.on('message', (data) => {
+            $('#chat').append(`<p><strong>${data.username}</strong>: ${data.message}</p>`);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+        });
+
+        $('#sendMessage').click(() => {
+            const message = $('#messageInput').val();
+            const username = 'User'; // Replace with actual username logic if needed
+            socket.emit('message', { username, message });
+            $('#messageInput').val('');
+        });
+
+        $('#messageInput').keypress(function (e) {
+            if (e.which === 13) {
+                $('#sendMessage').click();
+            }
+        });
+
         function showOptions(modalId) {
             document.getElementById(modalId).style.display = "block";
         }
@@ -60,15 +85,15 @@
         function createMeeting() {
             var meetingName = document.getElementById("meetingName").value;
             var meetingDateTime = document.getElementById("meetingDateTime").value;
-            alert("Створюємо нову зустріч \"" + meetingName + "\" на " + meetingDateTime);
-            hideOptions(); // Приховуємо модальне вікно після алерта
+            alert("Creating new meeting \"" + meetingName + "\" on " + meetingDateTime);
+            hideOptions();
         }
 
         function joinMeetingByCode() {
             let meetingCode = document.getElementById("meetingCode").value;
             let camera = document.getElementById("camera").value;
             let microphone = document.getElementById("microphone").value;
-            alert("Приєднуємося до зустрічі за кодом " + meetingCode + " з камерою " + camera + " та мікрофоном " + microphone);
+            alert("Joining meeting with code " + meetingCode + " using camera " + camera + " and microphone " + microphone);
             let url = "video_conferencing.html";
             window.location.href = url;
         }

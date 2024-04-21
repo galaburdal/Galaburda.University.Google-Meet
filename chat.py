@@ -4,17 +4,9 @@ from flask_socketio import SocketIO, emit
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@socketio.on('connect')
-def handle_connect():
-    print('Client connected')
-
-@socketio.on('disconnect')
-def handle_disconnect():
-    print('Client disconnected')
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
 
 @socketio.on('message')
 def handle_message(data):

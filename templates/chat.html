@@ -1,3 +1,40 @@
-<div id="chatMessages"></div>
-<input type="text" id="messageInput">
-<button id="sendMessage">Send</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Type your message...">
+    <button id="sendMessage">Send</button>
+
+    <script>
+        const socket = io();
+
+        socket.on('message', (data) => {
+            $('#messages').append(`<p>${data.username}: ${data.message}</p>`);
+        });
+
+        $('#sendMessage').click(() => {
+            const message = $('#messageInput').val();
+            const username = 'User'; // Replace with actual username
+            socket.emit('message', { username, message });
+            $('#messageInput').val('');
+        });
+
+        $('#messageInput').keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                $('#sendMessage').click();
+            }
+            event.stopPropagation();
+        });
+
+    </script>
+</body>
+</html>
