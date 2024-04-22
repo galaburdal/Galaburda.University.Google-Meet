@@ -10,7 +10,7 @@ Galaburda Liza
 Week 1:
 - Implement feature: User Registration  &#10004;
 - Set up Azure environment for deployment &#10004;
-- Configure OAuth 2.0 authorization with Google account &#10004; ???
+- Configure OAuth 2.0 authorization with Google account &#10004; 
 - Create welcome email functionality upon successful registration &#10004;
 - Design and implement basic user interface for registration process &#10004;
 
