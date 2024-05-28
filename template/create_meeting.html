@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule Meeting</title>
+    <title>Create Meeting</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,7 +30,7 @@
             margin-top: 1em;
         }
 
-        .schedule-meeting-button {
+        .create-meeting-button {
             background-color: #4CAF50;
             color: white;
             padding: 1em 2em;
@@ -41,7 +41,7 @@
             margin-top: 1em;
         }
 
-        .schedule-meeting-button:hover {
+        .create-meeting-button:hover {
             background-color: #45a049;
         }
 
@@ -85,10 +85,12 @@
     </style>
 </head>
 <body>
-    <h1>Schedule Meeting</h1>
-    <form method="post" action="/">
-        <input type="datetime-local" name="meeting_time" required>
-        <button type="submit" class="schedule-meeting-button">Schedule Meeting</button>
+    <h1>Create Meeting</h1>
+    <form method="post" action="/start_instant/{{ meeting_link }}">
+        <button type="submit" class="create-meeting-button">Start Instant Meeting</button>
+    </form>
+    <form method="post" action="/schedule_meeting/{{ meeting_link }}">
+        <button type="submit" class="create-meeting-button">Schedule Meeting</button>
     </form>
     <form method="get" action="/">
         <button type="submit" class="back-button">Back to Meeting Room</button>
